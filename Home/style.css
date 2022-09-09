@@ -1,0 +1,131 @@
+.logo {
+    height: 63px;
+    width: 200px;
+    margin-top: 40px;
+    margin-left: 60px;
+
+}
+
+.buscador {
+    padding: 15px;
+    padding-right: 200px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: rgb(21, 21, 21);
+}
+
+.bordelupa {
+    padding: 15px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: none
+}
+
+.lupa {
+    height: 15px;
+    width: 15px;
+    
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    flex: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+section {
+    margin-right: 25px;
+}
+
+.arriba {
+    font-size: 20px;
+    color: aliceblue;
+}
+
+
+
+
+
+
+body {
+    background-color: black;
+    }
+    
+h2 {
+    color: rgb(186, 186, 186);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+}
+
+.ultimo {
+    margin-left: 40px;
+}
+
+.pelicula_principal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 400px;
+    width: 1424px;
+}
+
+.pelicula_principal:hover {
+    filter: blur(2px);
+    transition: filter .4s;
+}
+
+.imagen{
+    display: flex;
+    flex-wrap: wrap;
+    flex: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.peliculas:hover {
+    transform: scale(1.15); 
+}
+
+.peliculas {
+    height: 150px;
+    width: 270px;
+    transition: transform .2s; 
+    border-radius: 10px;
+    box-shadow: 0 0 100px black
+}
+
+* {
+    margin:0;
+    padding:0;
+    font:12pt Arial;
+}
+
+
+
+
+
+
+h4 {
+    color: rgb(186, 186, 186);
+    text-align: center;
+}
+
+.logofooter {
+    height: 63px;
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 7px;
+}
+
+
+h1 {
+    font-size: 60px;
+    color: rgb(186, 186, 186);
+    margin-left: 40px;
+}
+
