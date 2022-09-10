@@ -133,11 +133,23 @@ h1 {
     margin-left: 40px;
 }
 
-.toystory {
-
+.trailer {
+    display: flex;
+    flex-wrap: wrap;
+    flex: row;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .detalle {
-    margin-left: 40px;
     text-align: center;
+}
+
+.sinopsis {
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.linea {
+    border-color: rgb(69, 68, 68);
 }
