@@ -7,14 +7,15 @@
 
 
 .logo {
-    height: 63px;
+    height: 40px;
     width: 200px;
     margin-top: 40px;
-    margin-left: 60px;
+    margin-left:40px;
 
 }
 
 .buscador {
+    margin-left: 100px;
     padding: 15px;
     padding-right: 200px;
     background-color: rgb(21, 21, 21);
@@ -51,6 +52,15 @@ section {
     font-size: 20px;
     color: aliceblue;
 }
+
+.inicio {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+    margin-bottom: 7px;
+}
+
+
 
 
 
@@ -102,7 +112,7 @@ h2 {
     width: 270px;
     transition: transform .2s; 
     border-radius: 10px;
-    box-shadow: 0 0 100px black
+    box-shadow: 0 0 50px black
 }
 
 
@@ -118,7 +128,7 @@ h4 {
 }
 
 .logofooter {
-    height: 63px;
+    height: 40px;
     width: 200px;
     display: block;
     margin-left: auto;
@@ -153,3 +163,15 @@ h1 {
 .linea {
     border-color: rgb(69, 68, 68);
 }
+
+.titulos {
+    margin-left: 40px;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 5px 5px rgb(69, 69, 69);
+}
+
+
+
+
+
