@@ -11,7 +11,6 @@
     width: 200px;
     margin-top: 40px;
     margin-left:40px;
-
 }
 
 
@@ -19,8 +18,8 @@ div {
     display: flex;
     flex-wrap: wrap;
     flex: row;
+    justify-content: left;
     justify-content: space-between;
-    align-items: flex-end;
 }
 
 section {
@@ -35,8 +34,8 @@ section {
 .inicio {
     color: white;
     text-decoration: none;
+    margin-top: 47px;
     margin-right: 20px;
-    margin-bottom: 7px;
 }
 
 
