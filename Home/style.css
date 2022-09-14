@@ -38,6 +38,33 @@ section {
     margin-right: 20px;
 }
 
+.inicio:hover {
+    color: rgb(54, 53, 53);
+}
+
+.buscador {
+    margin-left: 100px;
+    padding: 15px;
+    padding-right: 200px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: rgb(21, 21, 21);
+    margin-top: 35px;
+}
+
+.bordelupa {
+    padding: 15px;
+    background-color: rgb(21, 21, 21);
+    color: rgb(255, 254, 254);
+    border: none
+}
+
+.lupa {
+    height: 15px;
+    width: 15px;
+}
+
+
 
 
 
@@ -148,8 +175,3 @@ h1 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-shadow: 3px 3px rgb(69, 69, 69);
 }
-
-
-
-
-
