@@ -214,15 +214,33 @@ h1 {
     }
 
     .buscador {
-    padding: 15px;
-    padding-right: 50px;
+        padding: 15px;
+        padding-right: 50px;
     }
 
     h2 {
         text-align: center;
     }
 
-    .imagen{
+    .titulos {
+        font-size: 25px;
+        padding-bottom: 20px;
+    }
+
+    .resultados {
+        padding-bottom: 1.38%;
+        padding-left: 2.7%;
+    }
+
+    .pelicula_principal {
+        padding-bottom: 10%;
+    }
+
+    .ultimo {
+        padding-bottom: 5%;
+    }
+
+    .imagen {
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;
@@ -230,7 +248,13 @@ h1 {
         align-items: center;
         padding-left: 2.08%;
         padding-right: 2.08%;
-        padding-bottom: 2.7%;
+        padding-bottom: 15%;
+    }
+
+    .peliculas {
+        width: 200px;
+        height: 120px;
+        padding: 2%;
     }
 
     header li {
@@ -238,13 +262,26 @@ h1 {
         padding-bottom: 5%;
     }
 
+    .resultados {
+        padding-bottom: 1.38%;
+        padding-left: 2.7%;
+        font-size: 20px;
+    }
+
+    .logofooter {
+        width: 100px;
+        height: 25px;
+    }
+
     .paddingtopfooter {
         padding-top: 1%;
-        font-size: 10px;
+        font-size: 13px;
     }
 
     .paddingbottomfooter {
         padding-bottom: 2%;
-        font-size: 10px;
+        font-size: 13px;
     }
+
+
 }
