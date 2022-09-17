@@ -115,6 +115,7 @@ h2 {
     padding-left: 2.08%;
     padding-right: 2.08%;
     padding-bottom: 2.7%;
+    padding-top: 2.7%;
 }
 
 .peliculas:hover {
@@ -227,11 +228,6 @@ h1 {
         padding-bottom: 20px;
     }
 
-    .resultados {
-        padding-bottom: 1.38%;
-        padding-left: 2.7%;
-    }
-
     .pelicula_principal {
         padding-bottom: 10%;
     }
@@ -249,6 +245,7 @@ h1 {
         padding-left: 2.08%;
         padding-right: 2.08%;
         padding-bottom: 15%;
+        padding-top: 3%;
     }
 
     .peliculas {
