@@ -81,7 +81,15 @@ h2 {
     font-size: 30px;
 }
 
+h2 a {
+    color: rgb(186, 186, 186);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    text-decoration: none;
+}
+
 .ultimo {
+    padding-top: 1%;
     padding-bottom: 1.38%;
     padding-left: 2.7%;
 }
@@ -115,7 +123,7 @@ h2 {
     padding-left: 2.08%;
     padding-right: 2.08%;
     padding-bottom: 2.7%;
-    padding-top: 2.7%;
+    padding-top: 1.5%;
 }
 
 .peliculas:hover {
@@ -181,6 +189,7 @@ h1 {
 
 .detalle {
     text-align: center;
+    padding-top: 3.5%;
     padding-bottom: 1.38%;
 }
 
@@ -189,6 +198,14 @@ h1 {
     padding-left: 17.36%;
     padding-right: 17.36%;
     padding-bottom: 2.7%;
+}
+
+.detallegenero {
+    text-align: center;
+    padding-bottom: 5%;
+    padding-left: 17.36%;
+    padding-right: 17.36%;
+
 }
 
 .linea {
