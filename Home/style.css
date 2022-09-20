@@ -9,7 +9,6 @@ li{
 }
 
 .logo {
-    height: 5.5%;
     width: 200px;
 }
 
@@ -59,7 +58,7 @@ header div {
 }
 
 .lupa {
-    height: 2.07%;
+    height: 15px;
     width: 15px;
 }
 
@@ -106,7 +105,6 @@ h2 a {
 .pelicula_principal {
     display: block;
     width: 100%;
-    height: 55.3%;
     padding-bottom: 2.7%;;
 }
 
@@ -151,7 +149,7 @@ h4 {
 }
 
 .logofooter {
-    height: 5.5%;
+    
     width: 13.8%;
     display: block;
     padding-top: 2.7%;
@@ -220,10 +218,12 @@ h1 {
 @media (max-width: 420px){
 
     header div {
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
-        justify-content: space-around;
+    }
+
+    header li {
+        padding-top: 5%;
+        padding-bottom: 5%;
     }
 
     .logo {
@@ -232,9 +232,14 @@ h1 {
     }
 
     .buscador {
-        padding: 15px;
         padding-right: 50px;
     }
+
+    .bordelupa {
+        display: none;
+    }
+
+
 
     h2 {
         text-align: center;
@@ -242,6 +247,7 @@ h1 {
 
     .titulos {
         font-size: 25px;
+        padding-left: 0px;
         padding-bottom: 20px;
     }
 
@@ -254,13 +260,7 @@ h1 {
     }
 
     .imagen {
-        display: flex;
-        flex-wrap: wrap;
         flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 2.08%;
-        padding-right: 2.08%;
         padding-bottom: 15%;
         padding-top: 3%;
     }
@@ -271,11 +271,6 @@ h1 {
         padding: 2%;
     }
 
-    header li {
-        padding-top: 5%;
-        padding-bottom: 5%;
-    }
-
     .resultados {
         padding-bottom: 1.38%;
         padding-left: 2.7%;
@@ -283,7 +278,7 @@ h1 {
     }
 
     .logofooter {
-        width: 100px;
+        width: 130px;
         height: 25px;
     }
 
