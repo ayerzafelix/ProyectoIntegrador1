@@ -125,12 +125,12 @@ h2 a {
 }
 
 .peliculas:hover {
-    transform: scale(1.15); 
+    transform: scale(1.05); 
 }
 
 .peliculas {
-    height: 150px;
-    width: 270px;
+    height: 350px;
+    width: 250px;
     transition: transform .2s; 
     border-radius: 10px;
     box-shadow: 0 0 50px black
