@@ -143,6 +143,7 @@ h2 a {
 
 
 
+
 h4 {
     color: rgb(186, 186, 186);
     text-align: center;
@@ -213,6 +214,72 @@ h1 {
 .detallepeliculas {
     padding-bottom: 1.38%;
 }
+
+
+
+
+
+
+
+
+
+
+
+.imagenPeliculaDetalle{
+    padding-left: 2.08%;
+    padding-right: 2.08%;
+    padding-bottom: 2.7%;
+    height: 350px;
+    width: 250px;
+    float: left;
+}
+
+.tituloPeliculaDetalle{
+    padding-left: 2.08%;
+    padding-right: 2.08%;
+    padding-bottom: 2.7%;
+    padding-top: 1.5%;
+}
+
+.calificacionPeliculaDetalle{
+    padding-top: 1.5%;
+    padding-left: 2.08%;
+    padding-bottom: 4.7%;
+    text-align: left;
+}
+
+.overviewPeliculaDetalle{
+    padding-top: 1.5%;
+    padding-left: 2.08%;
+    padding-bottom: 2.7%;
+    text-align: left;
+
+}
+
+.plataformasPeliculaDetalle{
+    text-align: center;
+    padding-left: 2.08%;
+    padding-right: 2.08%;
+    padding-bottom: 2.7%;
+    padding-top: 1.5%;
+}
+
+
+.plataformas{
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-left: 2.08%;
+    padding-right: 2.08%;
+    padding-bottom: 2.7%;
+    padding-top: 1.5%;
+}
+
+
+
+
 
 
 @media (max-width: 420px){
