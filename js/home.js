@@ -25,7 +25,7 @@ fetch(urlPopularMovie)
       let popularMoviesSection = document.getElementById("popularMovies")
       let popularMoviesContent = ""
 
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
         
       popularMoviesContent += 
         `<li class="peliculas">
@@ -55,11 +55,11 @@ fetch(urlPopularSeries)
       let popularSeriesSection = document.getElementById("popularSeries")
       let popularSeriesContent = ""
 
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
         
       popularSeriesContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
         </li>`
       }
@@ -85,7 +85,7 @@ fetch(urlMasVistosPeliculas)
       let masVistosPeliculasSection = document.getElementById("masVistosPeliculas")
       let masVistosPeliculasContent = ""
 
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
         
       masVistosPeliculasContent += 
         `<li class="peliculas">
@@ -115,11 +115,11 @@ fetch(urlMasVistosSeries)
       let masVistosSeriesSection = document.getElementById("masVistosSeries")
       let masVistosSeriesContent = ""
       
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
               
       masVistosSeriesContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
         </li>`
       }
@@ -145,7 +145,7 @@ fetch(urlPeliculasMasValoradas)
       let peliculasMasValoradasSection = document.getElementById("peliculasMasValoradas")
       let peliculasMasValoradasContent = ""
       
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
               
       peliculasMasValoradasContent += 
         `<li class="peliculas">
@@ -175,11 +175,11 @@ fetch(urlSeriesMasValoradas)
       let seriesMasValoradasSection = document.getElementById("seriesMasValoradas")
       let seriesMasValoradasContent = ""
       
-      for (let i = 0; i < data.results.length && i < 5; i++){
+      for (let i = 0; i < 5; i++){
               
       seriesMasValoradasContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
         </li>`
       }

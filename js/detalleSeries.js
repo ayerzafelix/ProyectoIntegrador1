@@ -14,9 +14,9 @@ formulario.addEventListener("submit", function(event){
 
 
 let qsObject = new URLSearchParams(location.search)
-let movie_id = qsObject.get("id")
+let serie_id = qsObject.get("id")
 
-let url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
+let url = `https://api.themoviedb.org/3/tv/${serie_id}?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
 fetch(url)
     .then(function(response){
       return response.json();
@@ -26,40 +26,41 @@ fetch(url)
       console.log(data.title)
 
 
-      let providers_url = `https://api.themoviedb.org/3/movie/${movie_id}/watch/providers?api_key=b3c4e9f716ea1c455601574fe492773b`
+      let providers_url = `https://api.themoviedb.org/3/tv/${serie_id}/watch/providers?api_key=b3c4e9f716ea1c455601574fe492773b`
       fetch(providers_url)
         .then(function(response){
           return response.json();
         })
         .then(function(providers_data){
           console.log(providers_data);
-          let detallePeliculaSection = document.getElementById("detallePelicula")
-          let detallePeliculaContent = ""
+          let detalleSerieSection = document.getElementById("detalleSerie")
+          let detalleSerieContent = ""
           let imgUrlBase = `https://image.tmdb.org/t/p/original`
 
-          detallePeliculaContent += 
-              `<h2 class="tituloPeliculaDetalle">${data.title}</h2>
+          detalleSerieContent += 
+              `<h2 class="tituloPeliculaDetalle">${data.original_name}</h2>
               <img class="imagenPeliculaDetalle" src="https://image.tmdb.org/t/p/original${data.poster_path}"/>
               <h4 class="overviewPeliculaDetalle"> ${data.overview}</h4>
-              <h4 class="calificacionPeliculaDetalle">Fecha de estreno: ${data.release_date}</h4>
-              <h4 class="calificacionPeliculaDetalle"> Calificación: ${data.vote_average}</h4>
-              <h4 class="calificacionPeliculaDetalle">Género${data.genre_ids}</h4>`
+              <h4 class="calificacionPeliculaDetalle"><u>Fecha de estreno:</u> ${data.first_air_date}</h4>
+              <h4 class="calificacionPeliculaDetalle"><u>Calificación:</u> ${data.vote_average}</h4>
+              <h4 class="calificacionPeliculaDetalle"><u>Género:</u> ${data.genres}</h4>`
               
           if (providers_data.results.US) {
-            detallePeliculaContent += 
-            `<h4 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h4>
+            detalleSerieContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
-                <a class="peliculas" href="detallepeliculas.html?id=${data.id}" </a>`
+                <a class="plataforma" href="detalleSeries.html?id=${data.id}" </a>`
             for (let i = 0; i < providers_data.results.US.buy.length; i++) {
               const element = providers_data.results.US.buy[i];
-              detallePeliculaContent += `<img src="${imgUrlBase + element.logo_path}"/>`
+              detalleSerieContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
                 
             }
+            
           }
-          detallePeliculaContent += `</li>`
+          detalleSerieContent += `</li>`
 
 
-          detallePeliculaSection.innerHTML = detallePeliculaContent
+          detalleSerieSection.innerHTML = detalleSerieContent
         })
       
 
