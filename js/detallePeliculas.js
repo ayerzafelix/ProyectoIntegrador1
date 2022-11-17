@@ -98,6 +98,18 @@ fetch(url)
             }
           }
 
+          else if (providers_data.results.US && providers_data.results.US.free) {
+            detallePeliculaContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detallepeliculas.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.US.free.length; i++) {
+              const element = providers_data.results.US.free[i];
+              detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                
+            }
+          }
+
           else if (providers_data.results.MX && providers_data.results.MX.buy) {
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>

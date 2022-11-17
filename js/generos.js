@@ -120,7 +120,7 @@ fetch(urlGeneroDramaTv)
         
         generoDramaTvContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
         </li>`
       }
@@ -150,7 +150,7 @@ fetch(urlGeneroComediaTv)
               
     generoComediaTvContent += 
     `<li class="peliculas">
-        <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+        <a href="detalleseries.html?id=${data.results[i].id}" </a>
         <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
     </li>`
     }
@@ -180,7 +180,7 @@ fetch(urlGeneroDocumentalTv)
               
         generoDocumentalTvContent += 
     `<li class="peliculas">
-        <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+        <a href="detalleseries.html?id=${data.results[i].id}" </a>
         <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
     </li>`
     }
