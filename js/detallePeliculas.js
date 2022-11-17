@@ -43,9 +43,22 @@ fetch(url)
               <h4 class="overviewPeliculaDetalle"> ${data.overview}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Fecha de estreno:</u> ${data.release_date}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Calificación:</u> ${data.vote_average}</h4>
-              <h4 class="calificacionPeliculaDetalle"><u>Género:</u> ${data.genres}</h4>`
+              <h4 class="calificacionPeliculaDetalle"><u>Duración:</u> ${data.runtime} minutos</h4> 
+              <h4 class="calificacionPeliculaDetalle"><u>Género:</u>`
               
-          if (providers_data.results.US) {
+            for (let i = 0; i < data.genres.length; i++) {
+              const element = data.genres[i];
+              detallePeliculaContent +=` ${element.name}.`
+              
+            }
+
+            detallePeliculaContent += `</h4>
+            <h2 class="plataformasPeliculaDetalle">Trailer de ${data.title}</h2>
+            <section class="trailer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+            </section>`
+              
+          if (providers_data.results.US && providers_data.results.US.buy) {
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
@@ -55,6 +68,31 @@ fetch(url)
               detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
                 
             }
+          }
+
+          else if (providers_data.results.US && providers_data.results.US.flatrate) {
+            detallePeliculaContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detallepeliculas.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.US.flatrate.length; i++) {
+              const element = providers_data.results.US.flatrate[i];
+              detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                
+            }
+          }
+
+          else if (providers_data.results.MX && providers_data.results.MX.buy) {
+            detallePeliculaContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detallePeliculas.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.MX.buy.length; i++) {
+              const element = providers_data.results.MX.buy[i];
+              detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                
+            }
+            
           }
           detallePeliculaContent += `</li>`
 

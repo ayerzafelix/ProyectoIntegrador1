@@ -38,25 +38,62 @@ fetch(url)
           let imgUrlBase = `https://image.tmdb.org/t/p/original`
 
           detalleSerieContent += 
-              `<h2 class="tituloPeliculaDetalle">${data.original_name}</h2>
+              `<h2 class="tituloPeliculaDetalle">${data.name}</h2>
               <img class="imagenPeliculaDetalle" src="https://image.tmdb.org/t/p/original${data.poster_path}"/>
               <h4 class="overviewPeliculaDetalle"> ${data.overview}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Fecha de estreno:</u> ${data.first_air_date}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Calificación:</u> ${data.vote_average}</h4>
-              <h4 class="calificacionPeliculaDetalle"><u>Género:</u> ${data.genres}</h4>`
+              <h4 class="calificacionPeliculaDetalle"><u>Género:</u>`
               
-          if (providers_data.results.US) {
+            for (let i = 0; i < data.genres.length; i++) {
+              const element = data.genres[i]
+              ;
+              detalleSerieContent +=` ${element.name}.`
+              
+            }
+
+            detalleSerieContent += `</h4>`
+
+
+              
+          if (providers_data.results.US && providers_data.results.US.flatrate) {
             detalleSerieContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
                 <a class="plataforma" href="detalleSeries.html?id=${data.id}" </a>`
-            for (let i = 0; i < providers_data.results.US.buy.length; i++) {
-              const element = providers_data.results.US.buy[i];
+            for (let i = 0; i < providers_data.results.US.flatrate.length; i++) {
+              const element = providers_data.results.US.flatrate[i];
               detalleSerieContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
                 
             }
             
           }
+          else if (providers_data.results.FR && providers_data.results.FR.flatrate) {
+            detalleSerieContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detalleSeries.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.FR.flatrate.length; i++) {
+              const element = providers_data.results.FR.flatrate[i];
+              detalleSerieContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                
+            }
+            
+          }
+
+          else if (providers_data.results.BR && providers_data.results.BR.flatrate) {
+            detalleSerieContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detalleSeries.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.BR.flatrate.length; i++) {
+              const element = providers_data.results.BR.flatrate[i];
+              detalleSerieContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                
+            }
+            
+          }
+
           detalleSerieContent += `</li>`
 
 

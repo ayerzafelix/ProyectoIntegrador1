@@ -8,6 +8,16 @@ formulario.addEventListener("submit", function(event){
       alert("Este campo es obligatorio")
     } else if(busqueda.value.length <= 3){
         alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+      let buscador = `https://api.themoviedb.org/3/search/company?api_key=b3c4e9f716ea1c455601574fe492773b&query=${busqueda.value}&page=1`
+      fetch(buscador)
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(data){
+            console.log('search');
+            console.log(data);
+          })
     }
 })
 
@@ -29,8 +39,10 @@ fetch(urlPopularMovie)
         
       popularMoviesContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detallepeliculas.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].title}</h4>
+            <h5>${data.results[i].release_date}</h5>    
         </li>`
       }
 
@@ -59,8 +71,10 @@ fetch(urlPopularSeries)
         
       popularSeriesContent += 
         `<li class="peliculas">
-            <a href="detalleseries.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].name}</h4>
+            <h5>${data.results[i].first_air_date}</h5>
         </li>`
       }
 
@@ -89,8 +103,10 @@ fetch(urlMasVistosPeliculas)
         
       masVistosPeliculasContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detallepeliculas.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].title}</h4>
+            <h5>${data.results[i].release_date}</h5>
         </li>`
       }
 
@@ -119,8 +135,10 @@ fetch(urlMasVistosSeries)
               
       masVistosSeriesContent += 
         `<li class="peliculas">
-            <a href="detalleseries.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].name}</h4>
+            <h5>${data.results[i].first_air_date}</h5>
         </li>`
       }
       
@@ -149,8 +167,10 @@ fetch(urlPeliculasMasValoradas)
               
       peliculasMasValoradasContent += 
         `<li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detallepeliculas.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].title}</h4>
+            <h5>${data.results[i].release_date}</h5>
         </li>`
       }
       
@@ -179,8 +199,10 @@ fetch(urlSeriesMasValoradas)
               
       seriesMasValoradasContent += 
         `<li class="peliculas">
-            <a href="detalleseries.html?id=${data.results[i].id}" </a>
+            <a class="nombres" href="detalleseries.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+            <h4>${data.results[i].name}</h4>
+            <h5>${data.results[i].first_air_date}</h5>
         </li>`
       }
       

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DH Movies</title>
+    <title>Generos</title>
 
-    <link rel="stylesheet" href="./Home/style.css">
+<link rel="stylesheet" href="./Home/style.css">
 
 </head>
 <body>
+
     <header>
 
 
@@ -20,7 +20,7 @@
                 
                 <section class="barra">
                     <form action="./resultados.html" method="get">
-                        <input type="text" id="searchterm" placeholder="Buscar en DH Movies" class="buscador"/>
+                        <input type="text" id="searchterm" placeholder="Buscar en DH Movies" class="buscador" name = "" value = ""/>
         
                         <button type="submit" id="search" class="bordelupa">
                             <img src="./Home/imagenes/lupa.png" alt="" class="lupa">
@@ -43,27 +43,19 @@
     
     </header>
 
-    
+
+<section class="imagen" id="resultados"></section>
 
 
-    <h2 class="ultimo resultados">Resultados de busqueda: "Toy Story"</h2>
 
-    <section class="imagen">
-        <li class="peliculas"><a href="./detallepeliculas.html"><img src="./FOTOS PELICULAS/toystory1.png" alt="" class="peliculas"></a></li>
-        <li class="peliculas"><a href="./detallepeliculas.html"><img src="./FOTOS PELICULAS/ToyStory2Poster.png" alt="" class="peliculas"></a></li>
-        <li class="peliculas"><a href="./detallepeliculas.html"><img src="./FOTOS PELICULAS/ToyStory3.png" alt="" class="peliculas"></a></li>
-    </section> 
 
-    
+<footer>
+    <hr class="linea">
+    <a href="./home.html"> <img src="./Home/imagenes/tmbd.svg" alt="" class="logofooter"></a>
+    <h4 class="paddingtopfooter">Benjamin Simone | Santiago Roca | Felix Ayerza</h4>
+    <h4 class="paddingbottomfooter">Copyrigth Ⓒ 2022 DH Movies</h4>
+</footer>
 
-    
-    <footer>
-        <hr class="linea">
-        <a href="./home.html"> <img src="./Home/imagenes/tmbd.svg" alt="" class="logofooter"></a>
-        <h4 class="paddingtopfooter">Benjamin Simone | Santiago Roca | Felix Ayerza</h4>
-        <h4 class="paddingbottomfooter">Copyrigth Ⓒ 2022 DH Movies</h4>
-    </footer>
-
-    
+    <script src="./js/resultados.js"></script>
 </body>
 </html>
