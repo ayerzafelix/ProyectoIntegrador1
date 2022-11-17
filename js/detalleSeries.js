@@ -52,11 +52,28 @@ fetch(url)
               
             }
 
-            detalleSerieContent += `</h4>`
+            detalleSerieContent += `</h4>
+            <h2 class="plataformasPeliculaDetalle">Trailer de ${data.name}</h2>
+            <section class="trailer">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+            </section>`
+      
 
 
+          if (providers_data.results.AR && providers_data.results.AR.flatrate) {
+            detalleSerieContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detalleSeries.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.AR.flatrate.length; i++) {
+              const element = providers_data.results.AR.flatrate[i];
+              detalleSerieContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                  
+            }
               
-          if (providers_data.results.US && providers_data.results.US.flatrate) {
+          }    
+
+          else if (providers_data.results.US && providers_data.results.US.flatrate) {
             detalleSerieContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
@@ -68,6 +85,7 @@ fetch(url)
             }
             
           }
+
           else if (providers_data.results.FR && providers_data.results.FR.flatrate) {
             detalleSerieContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>

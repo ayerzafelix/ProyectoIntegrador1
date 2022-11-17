@@ -58,7 +58,23 @@ fetch(url)
             <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
             </section>`
               
-          if (providers_data.results.US && providers_data.results.US.buy) {
+
+
+          if (providers_data.results.AR && providers_data.results.AR.flatrate) {
+            detallePeliculaContent += 
+            `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
+              <li class="imagen">
+                <a class="plataforma" href="detallepelicula.html?id=${data.id}" </a>`
+            for (let i = 0; i < providers_data.results.AR.flatrate.length; i++) {
+              const element = providers_data.results.AR.flatrate[i];
+              detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
+                    
+            }
+                
+          }    
+  
+
+          else if (providers_data.results.US && providers_data.results.US.buy) {
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
