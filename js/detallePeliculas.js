@@ -58,7 +58,7 @@ fetch(url)
 
             if(providers_data.results.length > 0){
               detallePeliculaContent += `</h4>
-              <h2 class="plataformasPeliculaDetalle">Trailer de ${data.name}</h2>
+              <h2 class="plataformasPeliculaDetalle">Trailer de ${data.title}</h2>
               <section class="trailer">
               <iframe width="560" height="315" src="${trailerUrl + providers_data.results[0].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
               </section>`
