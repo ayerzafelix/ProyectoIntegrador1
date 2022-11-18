@@ -291,6 +291,28 @@ h1 {
     border: 1px solid rgb(186, 186, 186);
 }
 
+.generos{
+    font-size: x-large;
+    color: rgb(186, 186, 186);
+}
+
+.imagenes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 2.7%;
+    padding-right: 2.08%;
+    padding-bottom: 4.7%;
+    padding-top: 1.5%;
+}
+
+.review{
+    padding-left: 2.7%;
+    text-align: left;
+    padding-bottom: 3%;
+}
+
 
 
 
