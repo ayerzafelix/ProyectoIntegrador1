@@ -41,7 +41,7 @@ fetch(resultadosDeBusqueda)
         resultadosContent += 
         `<h2 class="ultimo">Resultados de busqueda: "${busqueda.value}"</h2>
         <li class="peliculas">
-            <a href="detallepeliculas.html?id=${data.results[i].id}" </a>
+            <a href="detallePeliculas.html?id=${data.results[i].id}" </a>
             <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
         </li>`
       }
