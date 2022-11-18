@@ -26,7 +26,7 @@ fetch(url)
       console.log(data.title)
 
 
-      let providers_url = `https://api.themoviedb.org/3/movie/${movie_id}/watch/providers?api_key=b3c4e9f716ea1c455601574fe492773b`
+      let providers_url = `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
       fetch(providers_url)
         .then(function(response){
           return response.json();
@@ -36,6 +36,8 @@ fetch(url)
           let detallePeliculaSection = document.getElementById("detallePelicula")
           let detallePeliculaContent = ""
           let imgUrlBase = `https://image.tmdb.org/t/p/original`
+          let trailerUrl = 'https://www.youtube.com/embed/'
+          
 
           detallePeliculaContent += 
               `<h2 class="tituloPeliculaDetalle">${data.title}</h2>
@@ -52,12 +54,15 @@ fetch(url)
               
             }
 
-            detallePeliculaContent += `</h4>
-            <h2 class="plataformasPeliculaDetalle">Trailer de ${data.title}</h2>
-            <section class="trailer">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
-            </section>`
               
+
+            if(providers_data.results.length > 0){
+              detallePeliculaContent += `</h4>
+              <h2 class="plataformasPeliculaDetalle">Trailer de ${data.name}</h2>
+              <section class="trailer">
+              <iframe width="560" height="315" src="${trailerUrl + providers_data.results[0].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+              </section>`
+            }
 
 
           if (providers_data.results.AR && providers_data.results.AR.flatrate) {

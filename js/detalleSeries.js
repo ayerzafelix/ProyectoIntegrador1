@@ -26,16 +26,19 @@ fetch(url)
       console.log(data.title)
 
 
-      let providers_url = `https://api.themoviedb.org/3/tv/${serie_id}/watch/providers?api_key=b3c4e9f716ea1c455601574fe492773b`
+      let providers_url = `https://api.themoviedb.org/3/tv/${serie_id}/videos?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
       fetch(providers_url)
         .then(function(response){
           return response.json();
         })
         .then(function(providers_data){
           console.log(providers_data);
+
+
           let detalleSerieSection = document.getElementById("detalleSerie")
           let detalleSerieContent = ""
           let imgUrlBase = `https://image.tmdb.org/t/p/original`
+          let trailerUrl = 'https://www.youtube.com/embed/'
 
           detalleSerieContent += 
               `<h2 class="tituloPeliculaDetalle">${data.name}</h2>
@@ -51,11 +54,13 @@ fetch(url)
               
             }
 
-            detalleSerieContent += `</h4>
-            <h2 class="plataformasPeliculaDetalle">Trailer de ${data.name}</h2>
-            <section class="trailer">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
-            </section>`
+            if(providers_data.results.length > 0){
+              detalleSerieContent += `</h4>
+              <h2 class="plataformasPeliculaDetalle">Trailer de ${data.name}</h2>
+              <section class="trailer">
+              <iframe width="560" height="315" src="${trailerUrl + providers_data.results[0].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+              </section>`
+            }
       
 
 
@@ -131,17 +136,16 @@ let urlReview = `https://api.themoviedb.org/3/tv/${serie_id}/reviews?api_key=b3c
       })
       .then(function(review_data){
         console.log(review_data);
+        if(review_data.results.length > 0){
 
 
-        let reviewSerieSection = document.getElementById("reviewSerie")
-        let reviewSerieContent = `<h2 class="ultimo">Review:</h2>`
+          let reviewSerieSection = document.getElementById("reviewSerie")
+          let reviewSerieContent = `<h2 class="ultimo">Review:</h2>`
 
-        reviewSerieContent += 
-            `<h4 class="review"><u>${review_data.results[0].author}:</u> ${review_data.results[0].content}}</h4>
-            `
-          
-        
-            reviewSerieSection.innerHTML = reviewSerieContent
-
+          reviewSerieContent += 
+              `<h4 class="review"><u>${review_data.results[0].author}:</u> ${review_data.results[0].content}}</h4>
+              `
             
+              reviewSerieSection.innerHTML = reviewSerieContent   
+        }
       })
