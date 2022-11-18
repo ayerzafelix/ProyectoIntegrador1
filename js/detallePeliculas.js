@@ -78,7 +78,7 @@ fetch(url)
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
-                <a class="plataforma" href="detallepeliculas.html?id=${data.id}" </a>`
+                <a class="plataforma" href="detallePeliculas.html?id=${data.id}" </a>`
             for (let i = 0; i < providers_data.results.US.buy.length; i++) {
               const element = providers_data.results.US.buy[i];
               detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
@@ -90,7 +90,7 @@ fetch(url)
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
-                <a class="plataforma" href="detallepeliculas.html?id=${data.id}" </a>`
+                <a class="plataforma" href="detallePeliculas.html?id=${data.id}" </a>`
             for (let i = 0; i < providers_data.results.US.flatrate.length; i++) {
               const element = providers_data.results.US.flatrate[i];
               detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
@@ -102,7 +102,7 @@ fetch(url)
             detallePeliculaContent += 
             `<h2 class="plataformasPeliculaDetalle">Plataformas en donde se puede ver: </h2>
               <li class="imagen">
-                <a class="plataforma" href="detallepeliculas.html?id=${data.id}" </a>`
+                <a class="plataforma" href="detallePeliculas.html?id=${data.id}" </a>`
             for (let i = 0; i < providers_data.results.US.free.length; i++) {
               const element = providers_data.results.US.free[i];
               detallePeliculaContent += `<img class="plataforma" src="${imgUrlBase + element.logo_path}"/>`
@@ -133,3 +133,26 @@ fetch(url)
     .catch(function(error){
         console.log(error);
     })
+
+
+    let urlReview = `https://api.themoviedb.org/3/movie/${movie_id}/reviews?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
+    fetch(urlReview)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(review_data){
+        console.log(review_data);
+
+
+        let reviewSerieSection = document.getElementById("reviewPelicula")
+        let reviewSerieContent = `<h2 class="ultimo">Review:</h2>`
+
+        reviewSerieContent += 
+            `<h4 class="review"><u>${review_data.results[0].author}:</u> ${review_data.results[0].content}}</h4>
+            `
+          
+        
+            reviewSerieSection.innerHTML = reviewSerieContent
+
+            
+      })
