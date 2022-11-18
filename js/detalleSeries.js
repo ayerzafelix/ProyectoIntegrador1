@@ -46,8 +46,7 @@ fetch(url)
               <h4 class="calificacionPeliculaDetalle"><u>Género:</u>`
               
             for (let i = 0; i < data.genres.length; i++) {
-              const element = data.genres[i]
-              ;
+              const element = data.genres[i];
               detalleSerieContent +=` ${element.name}.`
               
             }
@@ -117,9 +116,32 @@ fetch(url)
 
           detalleSerieSection.innerHTML = detalleSerieContent
         })
-      
 
     })
     .catch(function(error){
         console.log(error);
     })
+
+
+
+let urlReview = `https://api.themoviedb.org/3/tv/${serie_id}/reviews?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
+    fetch(urlReview)
+      .then(function(response){
+        return response.json();
+      })
+      .then(function(review_data){
+        console.log(review_data);
+
+
+        let reviewSerieSection = document.getElementById("reviewSerie")
+        let reviewSerieContent = `<h2 class="ultimo">Review:</h2>`
+
+        reviewSerieContent += 
+            `<h4 class="review"><u>${review_data.results[0].author}:</u> ${review_data.results[0].content}}</h4>
+            `
+          
+        
+            reviewSerieSection.innerHTML = reviewSerieContent
+
+            
+      })
