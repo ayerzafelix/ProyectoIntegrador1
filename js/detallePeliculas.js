@@ -1,13 +1,14 @@
 let formulario = document.querySelector('form')
-let busqueda = document.querySelector("input")
 
 formulario.addEventListener("submit", function(event){
   event.preventDefault()
 
-  if(busqueda.value == ""){
+  if(input.value == ""){
       alert("Este campo es obligatorio")
-    } else if(busqueda.value.length <= 3){
-        alert("Este campo tiene que tener al menos 3 caracteres")
+    } else if(input.value.length <= 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+      window.location = './resultados.html?search=' + input.value
     }
 })
 
@@ -26,17 +27,25 @@ fetch(url)
       console.log(data.title)
 
 
-      let providers_url = `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
-      fetch(providers_url)
+      let trailer_data = `https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
+      fetch(trailer_data)
+        .then(function(response){
+          return response.json();
+        })
+        .then(function(trailer_data){
+          console.log(trailer_data);
+          let detallePeliculaSection = document.getElementById("detallePelicula")
+          let detallePeliculaContent = ""
+          let imgUrlBase = `https://image.tmdb.org/t/p/original`
+          let trailerUrl = 'https://www.youtube.com/embed/'
+
+      let providers_data = `https://api.themoviedb.org/3/movie/${movie_id}/watch/providers?api_key=b3c4e9f716ea1c455601574fe492773b`
+      fetch(providers_data)
         .then(function(response){
           return response.json();
         })
         .then(function(providers_data){
           console.log(providers_data);
-          let detallePeliculaSection = document.getElementById("detallePelicula")
-          let detallePeliculaContent = ""
-          let imgUrlBase = `https://image.tmdb.org/t/p/original`
-          let trailerUrl = 'https://www.youtube.com/embed/'
           
 
           detallePeliculaContent += 
@@ -50,17 +59,17 @@ fetch(url)
               
             for (let i = 0; i < data.genres.length; i++) {
               const element = data.genres[i];
-              detallePeliculaContent +=` ${element.name}.`
+              detallePeliculaContent +=`<a class= "generosDetalle" href="./detalleGeneros.html?id=${data.genres[i].id}"> ${element.name}.</a>`
               
             }
 
               
 
-            if(providers_data.results.length > 0){
+            if(trailer_data.results.length > 0){
               detallePeliculaContent += `</h4>
               <h2 class="plataformasPeliculaDetalle">Trailer de ${data.title}</h2>
               <section class="trailer">
-              <iframe width="560" height="315" src="${trailerUrl + providers_data.results[0].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+              <iframe width="560" height="315" src="${trailerUrl + trailer_data.results[0].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
               </section>`
             }
 
@@ -161,3 +170,4 @@ fetch(url)
 
             
       })
+    })

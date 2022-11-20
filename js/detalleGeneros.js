@@ -1,3 +1,20 @@
+
+let formulario = document.querySelector('form')
+
+formulario.addEventListener("submit", function(event){
+  event.preventDefault()
+
+  if(input.value == ""){
+      alert("Este campo es obligatorio")
+    } else if(input.value.length <= 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+      window.location = './resultados.html?search=' + input.value
+    }
+})
+
+
+
 let qsObject = new URLSearchParams(location.search)
 let genero_id = qsObject.get("id")
 
@@ -24,7 +41,7 @@ fetch(urlGeneroPeliculas)
       for (let i = 0; i < 5; i++) {
         if (genero_id == generos.genres[i].id){
           detalleGenerosContent +=
-          `<h2 class="titulos">Género: ${generos.genres[i].name}</h2>`
+          `<h2 class="titulosDetalleGeneros">Género: ${generos.genres[i].name}</h2>`
         }
         
       }
@@ -73,7 +90,7 @@ fetch(urlGeneroPeliculas)
           for (let i = 0; i < 5; i++) {
             if (genero_id == generos.genres[i].id){
               detalleGenerosContent +=
-              `<h2 class="titulos">Género: ${generos.genres[i].name}</h2>`
+              `<h2 class="titulosDetalleGeneros">Género: ${generos.genres[i].name}</h2>`
             }
             
           }

@@ -1,13 +1,15 @@
+
 let formulario = document.querySelector('form')
-let busqueda = document.querySelector("input")
 
 formulario.addEventListener("submit", function(event){
   event.preventDefault()
 
-  if(busqueda.value == ""){
+  if(input.value == ""){
       alert("Este campo es obligatorio")
-    } else if(busqueda.value.length <= 3){
-        alert("Este campo tiene que tener al menos 3 caracteres")
+    } else if(input.value.length <= 3){
+      alert("Este campo tiene que tener al menos 3 caracteres")
+    } else {
+      window.location = './resultados.html?search=' + input.value
     }
 })
 
@@ -50,7 +52,7 @@ fetch(url)
               
             for (let i = 0; i < data.genres.length; i++) {
               const element = data.genres[i];
-              detalleSerieContent +=` ${element.name}.`
+              detalleSerieContent +=`<a class= "generosDetalle" href="./detalleGeneros.html?id=${data.genres[i].id}"> ${element.name}.</a>`
               
             }
 

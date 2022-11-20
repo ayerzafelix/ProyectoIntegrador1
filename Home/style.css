@@ -78,6 +78,7 @@ h2 {
     color: rgb(186, 186, 186);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 30px;
+    
 }
 
 h5{
@@ -313,7 +314,30 @@ h1 {
     padding-bottom: 3%;
 }
 
+.generosDetalle{
+    color: rgb(186, 186, 186);
+    text-decoration: none;
+}
 
+.titulosResultados{
+    padding-top: 2.7%;
+    padding-bottom: 2.7%;
+    padding-left: 2.7%;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 3px rgb(69 69 69);
+    padding-right: 56%;
+}
+
+.titulosDetalleGeneros{
+    padding-top: 2.7%;
+    padding-bottom: 2.7%;
+    padding-left: 2.7%;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 3px rgb(69 69 69);
+    padding-right: 81%;
+}
 
 
 
