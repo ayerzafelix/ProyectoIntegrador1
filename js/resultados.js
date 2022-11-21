@@ -41,26 +41,45 @@ fetch(busquedaPeliculas)
   })
   .then(function(peliculas){
     console.log(peliculas);
-    fetch(busquedaPeliculas)
+
+    let imgUrlBase= "https://image.tmdb.org/t/p/w300"
+    let resultadosSection = document.getElementById("resultados")
+    let resultadosContent = `<h2 class="titulosResultados">Resultados de busqueda: "${query}"</h2>`
+    let numResultados = 0
+    for (let i = 0; i < 5 && i < peliculas.results.length; i++){
+      
+      resultadosContent += 
+      `<li class="peliculas">
+          <a class="nombres" href="detallepeliculas.html?id=${peliculas.results[i].id}" </a>
+          <img src="${imgUrlBase + peliculas.results[i].poster_path}" class="peliculas"/>
+          <h4>${peliculas.results[i].title}</h4>
+          <h5>${peliculas.results[i].release_date}</h5>    
+      </li>`
+      numResultados++
+    }
+    
+
+    fetch(busquedaSeries)
       .then(function(response){
         return response.json();
       })
       .then(function(series){
         console.log(series);
 
-        let imgUrlBase= "https://image.tmdb.org/t/p/w300"
-        let resultadosSection = document.getElementById("resultados")
-        let resultadosContent = `<h2 class="titulosResultados">Resultados de busqueda: "${query}"</h2>`
-
-        for (let i = 0; i < 5; i++){
-          
+        for (let i = numResultados; i < 5 && i < series.results.length; i++){
+      
           resultadosContent += 
           `<li class="peliculas">
               <a class="nombres" href="detallepeliculas.html?id=${series.results[i].id}" </a>
               <img src="${imgUrlBase + series.results[i].poster_path}" class="peliculas"/>
-              <h4>${series.results[i].title}</h4>
-              <h5>${series.results[i].release_date}</h5>    
+              <h4>${series.results[i].name}</h4>
+              <h5>${series.results[i].first_air_date}</h5>    
           </li>`
+          numResultados++
+        }
+        if(numResultados === 0){
+          resultadosContent =
+          `<h2 class="titulosResultados">No hay resultado para la busqueda: "${query}"</h2>`
         }
 
         resultadosSection.innerHTML = resultadosContent

@@ -317,6 +317,7 @@ h1 {
 .generosDetalle{
     color: rgb(186, 186, 186);
     text-decoration: none;
+    font-weight: bold;
 }
 
 .titulosResultados{

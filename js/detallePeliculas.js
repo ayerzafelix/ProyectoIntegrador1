@@ -59,7 +59,7 @@ fetch(url)
               
             for (let i = 0; i < data.genres.length; i++) {
               const element = data.genres[i];
-              detallePeliculaContent +=`<a class= "generosDetalle" href="./detalleGeneros.html?id=${data.genres[i].id}"> ${element.name}.</a>`
+              detallePeliculaContent +=` <a class= "generosDetalle" href="./detalleGeneros.html?id=${data.genres[i].id}">${element.name}</a>.`
               
             }
 
