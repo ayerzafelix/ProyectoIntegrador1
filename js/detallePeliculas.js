@@ -171,3 +171,40 @@ fetch(url)
             
       })
     })
+
+    let favoritosPeliculas = []
+
+    let recuperoStoragePeliculas = localStorage.getItem("peliculasFavs")
+
+    let queryString = location.search
+    let qsObj = new URLSearchParams(queryString)
+    let id = qsObj.get("id")
+    
+    if(recuperoStoragePeliculas !== null){
+        favoritosPeliculas = JSON.parse(recuperoStoragePeliculas)
+    }
+    
+    let boton = document.querySelector(".botonPeliculas");
+    
+    if(favoritosPeliculas.includes(id)){
+        boton.innerText = "Quitar de favoritos"
+    }
+    
+    boton.addEventListener("click", function(){
+    
+        if(favoritosPeliculas.includes(id)){
+            let indiceDelPersonaje = favoritosPeliculas.indexOf(id);
+            favoritosPeliculas.splice(indiceDelPersonaje, 1)
+            boton.innerText = "Agregar a favoritos";
+        } else {
+            favoritosPeliculas.push(id)
+            boton.innerText = "Quitar de favoritos";
+        }
+    
+    
+    
+    
+        let favsToString = JSON.stringify(favoritosPeliculas)
+        localStorage.setItem("peliculasFavs", favsToString)
+    
+    })

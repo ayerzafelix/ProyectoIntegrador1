@@ -1,46 +1,27 @@
-let formulario = document.querySelector('form')
+let recuperoStorageSeries = localStorage.getItem("favoritosSeries");
+let favoritosSeries = JSON.parse(recuperoStorageSeries);
+console.log(favoritosSeries);
 
-formulario.addEventListener("submit", function(event){
-  event.preventDefault()
+let recuperoStoragePeliculas = localStorage.getItem("favoritosPeliculas");
+let favoritosPeliculas = JSON.parse(recuperoStoragePeliculas);
+console.log(favoritosPeliculas);
 
-  if(input.value == ""){
-      alert("Este campo es obligatorio")
-    } else if(input.value.length < 3){
-      alert("Este campo tiene que tener al menos 3 caracteres")
-    } else {
-      window.location = './resultados.html?search=' + input.value
-    }
-})
+let sectionPeliculas = document.querySelector(".seleccionPeliculas");
+let sectionSeries = document.querySelector(".seleccionSeries");
 
-let favoritos = []
-
-let recuperStorage = localStorage.getItem("peliculasFavs")
-
-if(recuperStorage !== null){
-    favoritos = JSON.parse(recuperStorage)
+if (favoritosPeliculas == null || favoritosPeliculas.length == null){
+  sectionPeliculas.innerHTML = "NO agregaste peliculas a la seccion de favoritos"
+} else {
+  for (let i=0; i < favoritosPeliculas.length; i = i+1);
 }
 
-let boton = document.querySelector("button");
-
-if(favoritos.includes(id)){
-    boton.innerText = "Quitar de favoritos"
+if (favoritosSeries == null || favoritosSeries.length == null){
+  sectionPeliculas.innerHTML = "NO agregaste peliculas a la seccion de favoritos"
+} else {
+  for (let i=0; i < favoritosSeries.length; i = i+1);
 }
 
-boton.addEventListener("click", function(){
-
-    if(favoritos.includes(id)){
-        let indiceDeLaPelicula = favoritos.indexOf(id);
-        favoritos.splice(indiceDeLaPelicula, 1)
-        boton.innerText = "Agregar a favoritos";
-    } else {
-        favoritos.push(id)
-        boton.innerText = "Quitar de favoritos";
-    }
 
 
+let url = "https://rickandmortyapi.com/api/character/" + favoritosPeliculas[id]
 
-
-    let favsToString = JSON.stringify(favoritos)
-    localStorage.setItem("peliculasfavs", favsToString)
-
-})

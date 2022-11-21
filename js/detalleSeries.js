@@ -151,3 +151,40 @@ let urlReview = `https://api.themoviedb.org/3/tv/${serie_id}/reviews?api_key=b3c
               reviewSerieSection.innerHTML = reviewSerieContent   
         }
       })
+
+      let favoritosSeries = []
+
+      let recuperoStorageSeries = localStorage.getItem("seriesFavs")
+
+      let queryString = location.search
+      let qsObj = new URLSearchParams(queryString)
+      let id = qsObj.get("id")
+      
+      if(recuperoStorageSeries !== null){
+          favoritosSeries = JSON.parse(recuperoStorageSeries)
+      }
+      
+      let boton = document.querySelector(".botonSeries");
+      
+      if(favoritosSeries.includes(id)){
+          boton.innerText = "Quitar de favoritos"
+      }
+      
+      boton.addEventListener("click", function(){
+      
+          if(favoritosSeries.includes(id)){
+              let indiceDelPersonaje = favoritosSeries.indexOf(id);
+              favoritosSeries.splice(indiceDelPersonaje, 1)
+              boton.innerText = "Agregar a favoritos";
+          } else {
+              favoritosSeries.push(id)
+              boton.innerText = "Quitar de favoritos";
+          }
+      
+      
+      
+      
+          let favsToString = JSON.stringify(favoritosSeries)
+          localStorage.setItem("seriesFavs", favsToString)
+      
+      })
