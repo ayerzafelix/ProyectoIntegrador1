@@ -45,7 +45,7 @@ fetch(url)
           detalleSerieContent += 
               `<h2 class="tituloPeliculaDetalle">${data.name}</h2>
               <img class="imagenPeliculaDetalle" src="https://image.tmdb.org/t/p/original${data.poster_path}"/>
-              <h4 class="overviewPeliculaDetalle"> ${data.overview}</h4>
+              <h4 class="overviewPeliculaDetalle"><u>Sinopsis:</u> ${data.overview}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Fecha de estreno:</u> ${data.first_air_date}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Calificación:</u> ${data.vote_average}</h4>
               <h4 class="calificacionPeliculaDetalle"><u>Género:</u>`
