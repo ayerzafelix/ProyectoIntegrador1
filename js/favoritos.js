@@ -48,5 +48,6 @@ if (favoritosSeries == null || favoritosSeries.length == null){
 
 
 
-//let url = "https://rickandmortyapi.com/api/character/" + favoritosPeliculas[id]
 
+let urlPeliculas = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
+let urlSeries = `https://api.themoviedb.org/3/tv/${serie_id}?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
