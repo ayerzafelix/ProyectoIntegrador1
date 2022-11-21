@@ -152,35 +152,67 @@ let urlReview = `https://api.themoviedb.org/3/tv/${serie_id}/reviews?api_key=b3c
       })
 
 
-      let urlRecomendaciones = `https://api.themoviedb.org/3/tv/${serie_id}/recommendations?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
-      fetch(urlRecomendaciones)
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(data){
-        console.log(data);
-  
-        let imgUrlBase = `https://image.tmdb.org/t/p/original`
-        let recomendacionesSeriesSection = document.getElementById("recomendacionesSeries")
-        let recomendacionesSeriesContent = ""
-  
-        for (let i = 0; i < 5; i++){
-          
-          recomendacionesSeriesContent += 
-          `<li class="peliculas">
-              <a class="nombres" href="detalleseries.html?id=${data.results[i].id}" </a>
-              <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
-              <h4>${data.results[i].name}</h4>
-              <h5>${data.results[i].first_air_date}</h5>    
-          </li>`
-        }
-  
-        recomendacionesSeriesSection.innerHTML = recomendacionesSeriesContent
-  
+     
+
+
+// Boton de recomendaciones para que aparezcan y desaparezcan resultados
+// Primero le pongo de nombre botonRecomendaciones
+
+        let botonRecomendaciones = document.querySelector('.botonRecomendaciones')
+
+// Al tocar el boton, que aparezcan las peliculas
+
+        botonRecomendaciones.addEventListener('click', function(recomendados){
+          if (botonRecomendaciones.innerText == "Ver Recomendaciones"){
+
+            // Codigo para las recomendaciones
+
+            let urlRecomendaciones = `https://api.themoviedb.org/3/tv/${serie_id}/recommendations?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
+            fetch(urlRecomendaciones)
+            .then(function(response){
+              return response.json();
+            })
+            .then(function(data){
+              console.log(data);
+        
+              let imgUrlBase = `https://image.tmdb.org/t/p/original`
+              let recomendacionesSeriesSection = document.getElementById("recomendacionesSeries")
+              let recomendacionesSeriesContent = ""
+        
+              for (let i = 0; i < 5; i++){
+                
+                recomendacionesSeriesContent += 
+                `<li class="peliculas">
+                    <a class="nombres" href="detalleseries.html?id=${data.results[i].id}" </a>
+                    <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+                    <h4>${data.results[i].name}</h4>
+                    <h5>${data.results[i].first_air_date}</h5>    
+                </li>`
+              }
+        
+              recomendacionesSeriesSection.innerHTML = recomendacionesSeriesContent
+        
+              })
+              .catch(function(error){
+                  console.log(error);
+              })
+
+
+              
+            this.innerText = 'Ocultar Recomendaciones';
+
+          }
+          else {
+
+            // Aca hay que poner algo para ocultarlas
+            
+            this.innerText = 'Ver Recomendaciones';
+          }
+
         })
-        .catch(function(error){
-            console.log(error);
-        })
+
+
+ // Favoritos
 
         let favoritosSeries = []
 

@@ -172,38 +172,68 @@ fetch(url)
       })
     })
 
-    let urlRecomendaciones = `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
-    fetch(urlRecomendaciones)
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
-      console.log(data);
+ 
 
-      let imgUrlBase = `https://image.tmdb.org/t/p/original`
-      let recomendacionesPeliculasSection = document.getElementById("recomendacionesPeliculas")
-      let recomendacionesPeliculasContent = ""
 
-      for (let i = 0; i < 5; i++){
+
+
+// Boton de recomendaciones para que aparezcan y desaparezcan resultados
+// Primero le pongo de nombre botonRecomendaciones
+
+let botonRecomendaciones = document.querySelector('.botonRecomendaciones')
+
+// Al tocar el boton, que aparezcan las peliculas
+
+        botonRecomendaciones.addEventListener('click', function(recomendados){
+          if (botonRecomendaciones.innerText == "Ver Recomendaciones"){
+
+            // Codigo para las recomendaciones
+            
+            let urlRecomendaciones = `https://api.themoviedb.org/3/movie/${movie_id}/recommendations?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US&page=1`
+            fetch(urlRecomendaciones)
+            .then(function(response){
+              return response.json();
+            })
+            .then(function(data){
+              console.log(data);
+
+              let imgUrlBase = `https://image.tmdb.org/t/p/original`
+              let recomendacionesPeliculasSection = document.getElementById("recomendacionesPeliculas")
+              let recomendacionesPeliculasContent = ""
+
+              for (let i = 0; i < 5; i++){
+                    
+                recomendacionesPeliculasContent += 
+                `<li class="peliculas">
+                    <a class="nombres" href="detallepeliculas.html?id=${data.results[i].id}" </a>
+                    <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
+                    <h4>${data.results[i].title}</h4>
+                    <h5>${data.results[i].release_date}</h5>    
+                </li>`
+              }
+
+              recomendacionesPeliculasSection.innerHTML = recomendacionesPeliculasContent
+
+              })
+              .catch(function(error){
+                  console.log(error);
+              })
         
-        recomendacionesPeliculasContent += 
-        `<li class="peliculas">
-            <a class="nombres" href="detallepeliculas.html?id=${data.results[i].id}" </a>
-            <img src="${imgUrlBase + data.results[i].poster_path}" class="peliculas"/>
-            <h4>${data.results[i].title}</h4>
-            <h5>${data.results[i].release_date}</h5>    
-        </li>`
-      }
+        
+            this.innerText = 'Ocultar Recomendaciones';
 
-      recomendacionesPeliculasSection.innerHTML = recomendacionesPeliculasContent
+          }
+          else {
 
-      })
-      .catch(function(error){
-          console.log(error);
-      })
+            // Aca hay que poner algo para ocultarlas
+            
+            this.innerText = 'Ver Recomendaciones';
+          }
+
+        })
 
 
-
+ // Favoritos
 
 
     
