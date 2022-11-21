@@ -340,6 +340,17 @@ h1 {
     padding-right: 81%;
 }
 
+.botonRecomendaciones{
+    background:none;
+    border:none; 
+    padding-top: 2.7%;;
+    padding-bottom: 2.7%;
+    padding-left: 2.7%;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-shadow: 3px 3px rgb(69, 69, 69);
+    font-size: 30px;
+}
 
 
 
