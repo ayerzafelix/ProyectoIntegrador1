@@ -211,6 +211,57 @@ botonRecomendaciones.addEventListener('click', function(){
   }
 })
 
+
+
+
+let urltrailer = `https://api.themoviedb.org/3/tv/${serie_id}?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
+fetch(urltrailer)
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(data){
+      console.log(data);
+      console.log(data.title)
+
+  let trailer_data = `https://api.themoviedb.org/3/tv/${serie_id}/videos?api_key=b3c4e9f716ea1c455601574fe492773b&language=en-US`
+  fetch(trailer_data)
+    .then(function(response){
+      return response.json();
+    })
+  .then(function(trailer_data){
+    console.log(trailer_data);
+    let detalleSerieSection = document.getElementById("detalleTrailer")
+    let detalleSerieContent = `<h2 class="plataformasPeliculaDetalle">Otros trailers y videos de ${data.name}</h2>`
+    let trailerUrl = 'https://www.youtube.com/embed/'
+
+
+    for (let i = 1; i < 4; i++) {
+      
+      detalleSerieContent +=`
+          <section class="trailer">
+          <iframe width="560" height="315" src="${trailerUrl + trailer_data.results[i].key}" title="trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="toystory"></iframe>
+          </section>`
+
+          detalleSerieSection.innerHTML = detalleSerieContent
+    
+    }
+
+  })
+  
+    .catch(function(error){
+      console.log(error);
+  })
+
+  .catch(function(error){
+    console.log(error);
+})
+    })
+
+
+
+
+
+
  // Favoritos
 
         let favoritosSeries = []
