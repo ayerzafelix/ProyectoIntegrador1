@@ -92,3 +92,25 @@ fetch(busquedaPeliculas)
     .catch(function(error){
         console.log(error);
     })
+
+    
+    // Dark mode
+
+    let botonDark = document.querySelector('.botonDark');
+
+    let body = document.querySelector('body')
+    
+    let inicio = document.querySelector('h2')
+    
+    botonDark.addEventListener('click', function(){
+        if(botonDark.innerText == 'Aclarar fondo'){
+        botonDark.innerText = 'Oscurecer fondo'
+        body.style.background = '#666566';    
+        } 
+        
+        else{
+    
+        body.style.background = '#000';
+        this.innerText = 'Aclarar fondo'
+        }
+      })
